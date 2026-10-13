@@ -1,0 +1,6 @@
+prompt_id,file_or_source,sha256,role,provenance,status,headline_eligible,notes
+CUSTOM-INJ-TERSE-V1,prompts/judge_prompt_v1.txt,95c018d876db224200c0f0e28606c53e973dbeb2262bd953e5b3a31b5fe497fb,Injection LaaJ classifier,Project-authored,ready ablation,no,Strict JSON verdict; preregistered
+CUSTOM-INJ-RUBRIC-V1,prompts/judge_prompt_rubric_v1.txt,3de13cfc3a3eda8bad988fc69ce5c2f70fa12c2933e002ff828543857cfa269e,Injection LaaJ classifier,Project-authored,ready ablation,no,Rubric variant
+CUSTOM-PII-V1,prompts/pii_judge_prompt_v1.txt,0c44ecda194bbd2a1f0b6b58901da1b656e8b0fc59338331e0e17553fc42018d,PII LaaJ extraction/redaction,Project-authored,ready ablation,no,Span-level extraction
+LG3-UPSTREAM,prompts/lg3_upstream_prompt.txt,27eaab11264de6d1d87f31ef4e7585fb87520f9082c280d21103c2b2d89654c4,Injection/content classifier,Meta Llama Guard 3 official prompt format (llama.com docs),vendored and hashed,yes,Official format verbatim; S1-S13 MLCommons categories; first line safe/unsafe
+CHAO-UPSTREAM,prompts/chao_upstream_prompt.txt,bdb832fd6be4871c809a4c36b7c2bde8b6a7ff06e86416825bd93665f9cbc56d,Jailbreak severity judge,Published JailbreakingLLMs source (patrickrchao/JailbreakingLLMs system_prompts.py),vendored and hashed,yes,Published judge system prompt verbatim; Rating [[1-10]]; threshold >=5 = attack

@@ -1,0 +1,9 @@
+Family,Arm,Model or prompt
+A deterministic proxy,guarded,"deterministic_premodel_proxy 0.5.0 wheel, german_shepherd profile, threshold 0.4"
+B LLM-as-a-judge,lg3,"Llama Guard 3, official template, first line safe or unsafe"
+B LLM-as-a-judge,custom,"llama3.1 8B, strict JSON verdict prompt"
+B LLM-as-a-judge,chao,"llama3.1 8B, JailbreakingLLMs rubric, two calls"
+C classifier,piguard,"PIGuard 0.2B, revision dd78b24e"
+C classifier,pg2,"Prompt Guard 2, 86M"
+Target models,direct,qwen2.5 7B and llama3.1 8B
+PII track,pii,"deterministic PII scanner, mask plus vault"

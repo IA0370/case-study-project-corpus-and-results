@@ -1,0 +1,9 @@
+{
+  "preset": "balanced",
+  "overrides": {
+    "risk_threshold": 0.2,
+    "min_suspicious_tokens": 1,
+    "semantic_intent": true,
+    "semantic_max_gap": 10
+  }
+}

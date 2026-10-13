@@ -1,0 +1,6 @@
+Suite,PIGuard 0.2B,Prompt Guard 2 86M
+CORE-BALANCED n=1826,"high recall, elevated FP on trigger words","conservative recall, low FP"
+REALISTIC-MIX n=10000,FP visible at 2 percent prevalence,"FP minimal, recall reduced"
+ADAPTIVE-HELD-OUT n=1000,mid recall on unseen attacks,lower recall on unseen attacks
+META-INJECTION n=500,"subverted, judge-targeted payloads bypass it","subverted, same payload class bypasses it"
+HARD-NEGATIVES,clean,clean

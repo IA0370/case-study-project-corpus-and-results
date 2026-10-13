@@ -1,0 +1,4 @@
+Arm,Recall,FPR,False positives of 9800 benign
+Deterministic proxy,0.62,0.036,352
+LaaJ lg3,0.305,0.053,524
+LaaJ custom,0.885,0.148,1455

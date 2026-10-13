@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.1",
+  "core_result_fields": [
+    {"name": "run_id", "type": "string", "ledger_id": "FIELD-CORE-001", "required": true},
+    {"name": "git_sha", "type": "string", "ledger_id": "FIELD-CORE-002", "required": true},
+    {"name": "detector_arm", "type": "string", "ledger_id": "FIELD-CORE-003", "required": true},
+    {"name": "detector_version", "type": "string", "ledger_id": "FIELD-CORE-004", "required": true},
+    {"name": "config_hash", "type": "string", "ledger_id": "FIELD-CORE-005", "required": true},
+    {"name": "suite", "type": "string", "ledger_id": "FIELD-CORE-006", "required": true},
+    {"name": "dataset_id", "type": "string", "ledger_id": "FIELD-CORE-007", "required": true},
+    {"name": "dataset_revision", "type": "string", "ledger_id": "FIELD-CORE-008", "required": true},
+    {"name": "input_id", "type": "string", "ledger_id": "FIELD-CORE-009", "required": true},
+    {"name": "label", "type": "integer|string", "ledger_id": "FIELD-CORE-010", "required": true},
+    {"name": "verdict", "type": "integer|boolean|string", "ledger_id": "FIELD-CORE-011", "required": true},
+    {"name": "score", "type": "number|null", "ledger_id": "FIELD-CORE-012", "required": true},
+    {"name": "latency_ms", "type": "number", "ledger_id": "FIELD-CORE-013", "required": true},
+    {"name": "run_index", "type": "integer", "ledger_id": "FIELD-CORE-014", "required": true},
+    {"name": "cost_usd", "type": "number", "ledger_id": "FIELD-CORE-015", "required": true},
+    {"name": "input_len_chars", "type": "integer", "ledger_id": "FIELD-CORE-016", "required": true},
+    {"name": "estimated_tokens", "type": "integer", "ledger_id": "FIELD-CORE-017", "required": true},
+    {"name": "token_count_in", "type": "integer", "ledger_id": "FIELD-CORE-018", "required": true},
+    {"name": "token_count_out", "type": "integer", "ledger_id": "FIELD-CORE-019", "required": true},
+    {"name": "tokens_avoided", "type": "integer", "ledger_id": "FIELD-CORE-020", "required": true},
+    {"name": "issue_types", "type": "list[string]", "ledger_id": "FIELD-CORE-021", "required": true},
+    {"name": "mitre_ids", "type": "list[string]", "ledger_id": "FIELD-CORE-022", "required": true},
+    {"name": "scan_direction", "type": "string", "ledger_id": "FIELD-CORE-023", "required": true},
+    {"name": "error", "type": "string|null", "ledger_id": "FIELD-CORE-024", "required": true}
+  ],
+  "pii_fields": [
+    {"name": "entity_type", "ledger_id": "FIELD-PII-001", "required": true},
+    {"name": "gold_span", "ledger_id": "FIELD-PII-002", "required": true},
+    {"name": "pred_span", "ledger_id": "FIELD-PII-003", "required": true},
+    {"name": "pred_confidence", "ledger_id": "FIELD-PII-004", "required": true},
+    {"name": "match_kind", "ledger_id": "FIELD-PII-005", "required": true},
+    {"name": "validated", "ledger_id": "FIELD-PII-006", "required": true},
+    {"name": "vault_token", "ledger_id": "FIELD-PII-007", "required": true},
+    {"name": "roundtrip_ok", "ledger_id": "FIELD-PII-008", "required": true},
+    {"name": "raw_downstream_exposure", "ledger_id": "FIELD-PII-009", "required": true},
+    {"name": "collateral_text_change", "ledger_id": "FIELD-PII-010", "required": true},
+    {"name": "third_party_egress", "ledger_id": "FIELD-PII-011", "required": true}
+  ]
+}

@@ -1,0 +1,8 @@
+Metric,Deterministic proxy,LaaJ judge
+Entity extraction F1 (span IoU >= 0.5),0.942,not applicable (ingests raw text)
+Round-trip vault exactness,100%,not applicable
+Raw downstream exposure,0.00,1.00
+Third-party egress (local judge),0,0
+Third-party egress (hosted judge),0,1
+Checksum ablation - Luhn validator,eliminates false positives on 16-digit serial numbers,not applicable
+Checksum ablation - IBAN mod-97,eliminates false positives on non-IBAN account numbers,not applicable

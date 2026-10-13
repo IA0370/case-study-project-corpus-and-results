@@ -1,0 +1,631 @@
+{
+  "conversation_research_scope": "excluded_from_masters_research",
+  "freeze_id": "025a40df8af1572fe386",
+  "freeze_plan": "Research/data/manifests/suite_freeze_plan.json",
+  "freeze_plan_sha256": "158b0161555bcb1337d8293c9bf3d8ba7ef3a24aede69817fb1f8f3679cfdd3e",
+  "normalized_dataset_count": 10,
+  "normalized_dataset_manifest": "Research/data/manifests/normalized_dataset_manifest.json",
+  "normalized_dataset_manifest_sha256": "004af7ecd1d84bc21e3be624d1f34c82356b11aef6bda0cc2484eb6ac6c5db30",
+  "schema_version": "2.0",
+  "selection_seed": 20260716,
+  "suites": [
+    {
+      "actual_n": 1826,
+      "class_counts": {
+        "0": 913,
+        "1": 913
+      },
+      "dry_run_only": false,
+      "headline_eligible": true,
+      "justification": "All 913 attacks available in the two primary labelled sources plus 913 benign rows. This replaces the aspirational n=2000; padding or duplicate oversampling would bias the estimate.",
+      "ledger_id": "TEST-INJ-001",
+      "local_only": true,
+      "metrics": [
+        "F1",
+        "F2",
+        "MCC",
+        "FPR",
+        "FNR",
+        "McNemar"
+      ],
+      "name": "CORE-BALANCED",
+      "objectives": [
+        "Objective 1"
+      ],
+      "path": "Research/data/suites/frozen/core_balanced.jsonl",
+      "research_questions": [
+        "RQ1"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "deepset_prompt_injections": 662,
+        "jackhhao_jailbreak_classification": 1164
+      },
+      "source_ledger_ids": [
+        "DATA-INJ-001",
+        "DATA-INJ-002"
+      ],
+      "suite_sha256": "9d1e3f7f33ced92a237a9285957cadbc0ed7d43dd0950eff347e2d0cb794e6fc",
+      "target_n": 1826
+    },
+    {
+      "actual_n": 1000,
+      "class_counts": {
+        "0": 1000
+      },
+      "dry_run_only": false,
+      "headline_eligible": true,
+      "justification": "Benign multilingual and persona-style prompts measure over-defense.",
+      "ledger_id": "TEST-INJ-003",
+      "local_only": true,
+      "metrics": [
+        "FPR",
+        "specificity"
+      ],
+      "name": "HARD-NEGATIVES",
+      "objectives": [
+        "Objective 3"
+      ],
+      "path": "Research/data/suites/frozen/hard_negatives.jsonl",
+      "research_questions": [
+        "RQ7"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "gretel_synthetic_multilingual_llm_prompts": 1000
+      },
+      "source_ledger_ids": [
+        "DATA-HNEG-001"
+      ],
+      "suite_sha256": "0b8ded598b3c56b060191b909c80f90e23802b3c9b65ecfc8db3b9be49cfaa48",
+      "target_n": 1000
+    },
+    {
+      "actual_n": 10000,
+      "class_counts": {
+        "0": 9800,
+        "1": 200
+      },
+      "dry_run_only": false,
+      "headline_eligible": true,
+      "justification": "Exactly 2% attack prevalence. Toxic-chat contributes 9743 natural prompts; 17 successful HackAPrompt attacks and 240 unused multilingual benign prompts complete the preregistered size without duplicating HARD-NEGATIVES.",
+      "ledger_id": "TEST-INJ-002",
+      "local_only": true,
+      "metrics": [
+        "MCC",
+        "PR-AUC",
+        "precision",
+        "FPR"
+      ],
+      "name": "REALISTIC-MIX",
+      "objectives": [
+        "Objective 1",
+        "Objective 3"
+      ],
+      "path": "Research/data/suites/frozen/realistic_mix.jsonl",
+      "research_questions": [
+        "RQ1",
+        "RQ7"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "gretel_synthetic_multilingual_llm_prompts": 240,
+        "hackaprompt_dataset": 17,
+        "lmsys_toxic_chat": 9743
+      },
+      "source_ledger_ids": [
+        "DATA-HNEG-001",
+        "DATA-INJ-003",
+        "DATA-INJ-004"
+      ],
+      "suite_sha256": "65cbe66d520b3433c109cd4609c205300118ee7c975bc98a584842ec4152eecc",
+      "target_n": 10000
+    },
+    {
+      "actual_n": 1000,
+      "class_counts": {
+        "1": 1000
+      },
+      "dry_run_only": false,
+      "headline_eligible": false,
+      "justification": "Dataset-level held-out attacks from WildJailbreak and successful HackAPrompt submissions; CORE sources are prohibited.",
+      "ledger_id": "TEST-INJ-004",
+      "local_only": true,
+      "metrics": [
+        "recall",
+        "FNR",
+        "recall_delta_by_source"
+      ],
+      "name": "ADAPTIVE-HELD-OUT",
+      "objectives": [
+        "Objective 1"
+      ],
+      "path": "Research/data/suites/frozen/adaptive_held_out.jsonl",
+      "research_questions": [
+        "RQ6"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "allenai_wildjailbreak": 500,
+        "hackaprompt_dataset": 500
+      },
+      "source_ledger_ids": [
+        "DATA-INJ-004"
+      ],
+      "suite_sha256": "85935c8d047acad6560687d957dc387793856fd7746c5506fd3b011de0179592",
+      "target_n": 1000
+    },
+    {
+      "actual_n": 500,
+      "class_counts": {
+        "1": 500
+      },
+      "dry_run_only": false,
+      "headline_eligible": true,
+      "justification": "Controlled factorial detector-targeting stress test. Variants are clustered by template family and are not treated as independent natural samples.",
+      "ledger_id": "TEST-INJ-005",
+      "local_only": true,
+      "metrics": [
+        "ASR",
+        "FNR",
+        "judge_parse_failure"
+      ],
+      "name": "META-INJECTION",
+      "objectives": [
+        "Objective 1",
+        "Objective 3"
+      ],
+      "path": "Research/data/suites/frozen/meta_injection.jsonl",
+      "research_questions": [
+        "RQ5"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "authored_meta_injection": 500
+      },
+      "source_ledger_ids": [
+        "TEST-INJ-005"
+      ],
+      "suite_sha256": "73fb91ff84c464fcadaa3380d12e23cc3b531fec53d76db4eeaca7034c93d051",
+      "target_n": 500
+    },
+    {
+      "actual_n": 200,
+      "class_counts": {
+        "1": 200
+      },
+      "dry_run_only": false,
+      "headline_eligible": true,
+      "ledger_id": "TEST-DOS-001",
+      "local_only": true,
+      "metrics": [
+        "drop_rate",
+        "availability_score",
+        "latency_ms"
+      ],
+      "name": "STRUCTURAL-DOS",
+      "objectives": [
+        "Objective 2"
+      ],
+      "path": "Research/data/suites/frozen/structural_dos.jsonl",
+      "research_questions": [
+        "RQ9"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "authored_structural_dos": 200
+      },
+      "source_ledger_ids": [
+        "DATA-DOS-001"
+      ],
+      "suite_sha256": "a74eecc7f9e3ad9f80d5626ffa791deb02c1adb6513b92680ebe36bdd2213228",
+      "target_n": 200
+    },
+    {
+      "actual_n": 200,
+      "class_counts": {
+        "1": 200
+      },
+      "dry_run_only": false,
+      "headline_eligible": true,
+      "ledger_id": "TEST-DOS-002",
+      "local_only": true,
+      "metrics": [
+        "drop_rate",
+        "tokens_avoided",
+        "cost_avoided"
+      ],
+      "name": "TOKEN-FLOOD",
+      "objectives": [
+        "Objective 2",
+        "Objective 3"
+      ],
+      "path": "Research/data/suites/frozen/token_flood.jsonl",
+      "research_questions": [
+        "RQ9",
+        "RQ3"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "authored_token_flood": 200
+      },
+      "source_ledger_ids": [
+        "DATA-DOS-001"
+      ],
+      "suite_sha256": "7f545992a8b53a3e08f7a1e6f87f2856a6707c9cba2b4260a7e88ab47cc73315",
+      "target_n": 200
+    },
+    {
+      "actual_n": 200,
+      "class_counts": {
+        "1": 200
+      },
+      "dry_run_only": false,
+      "headline_eligible": true,
+      "ledger_id": "TEST-DOS-003",
+      "local_only": true,
+      "metrics": [
+        "drop_rate",
+        "latency_ms"
+      ],
+      "name": "HIGH-ENTROPY-BLOB",
+      "objectives": [
+        "Objective 2"
+      ],
+      "path": "Research/data/suites/frozen/high_entropy_blob.jsonl",
+      "research_questions": [
+        "RQ9"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "authored_high_entropy": 200
+      },
+      "source_ledger_ids": [
+        "DATA-DOS-001"
+      ],
+      "suite_sha256": "3d2ab0ca9e7a325218c78b83159ccdb47b5dd31e10512ed883aca4506e80dea7",
+      "target_n": 200
+    },
+    {
+      "actual_n": 200,
+      "class_counts": {
+        "1": 200
+      },
+      "dry_run_only": false,
+      "headline_eligible": false,
+      "ledger_id": "TEST-DOS-004",
+      "local_only": true,
+      "metrics": [
+        "drop_rate",
+        "issue_type_recall"
+      ],
+      "name": "MALFORMED-UNICODE",
+      "objectives": [
+        "Objective 2"
+      ],
+      "path": "Research/data/suites/frozen/malformed_unicode.jsonl",
+      "research_questions": [
+        "RQ9"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "authored_malformed_unicode": 200
+      },
+      "source_ledger_ids": [
+        "DATA-DOS-001"
+      ],
+      "suite_sha256": "4cd5baa8fe1ac6e8c1ccbea9243151ef683e226501715e9121494563bbcc0057",
+      "target_n": 200
+    },
+    {
+      "actual_n": 1200,
+      "class_counts": {
+        "0": 1200
+      },
+      "dry_run_only": false,
+      "headline_eligible": true,
+      "ledger_id": "TEST-DOS-005",
+      "local_only": true,
+      "metrics": [
+        "p50_ms",
+        "p95_ms",
+        "p99_ms",
+        "max_ms"
+      ],
+      "name": "LATENCY-SCALING",
+      "objectives": [
+        "Objective 3"
+      ],
+      "path": "Research/data/suites/frozen/latency_scaling.jsonl",
+      "research_questions": [
+        "RQ2"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "authored_latency_scaling": 1200
+      },
+      "source_ledger_ids": [
+        "DATA-LAT-001"
+      ],
+      "suite_sha256": "42c3fcfca2a90d38ea61f891a6198486ec73f005883fe157fa55bc52afd6d3fa",
+      "target_n": 1200
+    },
+    {
+      "actual_n": 200,
+      "class_counts": {
+        "0": 200
+      },
+      "dry_run_only": false,
+      "headline_eligible": true,
+      "ledger_id": "TEST-DOS-006",
+      "local_only": true,
+      "metrics": [
+        "FPR",
+        "latency_ms"
+      ],
+      "name": "BENIGN-LONG-DOCUMENTS",
+      "objectives": [
+        "Objective 2",
+        "Objective 3"
+      ],
+      "path": "Research/data/suites/frozen/benign_long_documents.jsonl",
+      "research_questions": [
+        "RQ9",
+        "RQ7"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "authored_benign_long": 200
+      },
+      "source_ledger_ids": [
+        "DATA-DOS-002"
+      ],
+      "suite_sha256": "6be22cbc68e15d539e36ad841238a495410e000a9299ece531ef78cdb4462a74",
+      "target_n": 200
+    },
+    {
+      "actual_n": 5000,
+      "class_counts": {
+        "contains_pii": 4500,
+        "no_pii": 500
+      },
+      "dry_run_only": false,
+      "headline_eligible": true,
+      "justification": "4500 source-labelled PII documents plus 500 controlled no-PII documents.",
+      "ledger_id": "TEST-PII-001",
+      "local_only": true,
+      "metrics": [
+        "entity_precision",
+        "entity_recall",
+        "entity_F1",
+        "raw_downstream_exposure",
+        "third_party_egress"
+      ],
+      "name": "PII-CORE",
+      "objectives": [
+        "Objective 4"
+      ],
+      "path": "Research/data/suites/frozen/pii_core.jsonl",
+      "research_questions": [
+        "RQ8"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "ai4privacy_pii_masking_200k": 2250,
+        "authored_pii_no_pii": 500,
+        "gretel_pii_masking_en_v1": 1750,
+        "presidio_research": 500
+      },
+      "source_ledger_ids": [
+        "DATA-PII-001",
+        "DATA-PII-002",
+        "DATA-PII-004"
+      ],
+      "suite_sha256": "7c98d99d344cbfe20356dbe58474020ea23e0534a75c40d79763e8586074cbf8",
+      "target_n": 5000
+    },
+    {
+      "actual_n": 1000,
+      "class_counts": {
+        "no_pii": 1000
+      },
+      "dry_run_only": false,
+      "headline_eligible": true,
+      "ledger_id": "TEST-PII-002",
+      "local_only": true,
+      "metrics": [
+        "FPR",
+        "collateral_change_rate"
+      ],
+      "name": "PII-HARD-NEGATIVES",
+      "objectives": [
+        "Objective 4"
+      ],
+      "path": "Research/data/suites/frozen/pii_hard_negatives.jsonl",
+      "research_questions": [
+        "RQ8"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "authored_pii_hard_negative": 1000
+      },
+      "source_ledger_ids": [
+        "DATA-PII-004"
+      ],
+      "suite_sha256": "eabe5737c5cb0d57519a2de1f394d12ff79c325b6ff0ba656c76dfd4fd589639",
+      "target_n": 1000
+    },
+    {
+      "actual_n": 3000,
+      "class_counts": {
+        "contains_pii": 3000
+      },
+      "dry_run_only": false,
+      "headline_eligible": false,
+      "ledger_id": "TEST-PII-003",
+      "local_only": true,
+      "metrics": [
+        "entity_F1_by_language"
+      ],
+      "name": "PII-MULTILINGUAL",
+      "objectives": [
+        "Objective 4"
+      ],
+      "path": "Research/data/suites/frozen/pii_multilingual.jsonl",
+      "research_questions": [
+        "RQ8"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "ai4privacy_pii_masking_200k": 3000
+      },
+      "source_ledger_ids": [
+        "DATA-PII-001"
+      ],
+      "suite_sha256": "569f04b461d0273a777ed960eabfd1d9a3a35aae5c0e9355447683e8f67ea918",
+      "target_n": 3000
+    },
+    {
+      "actual_n": 1000,
+      "class_counts": {
+        "contains_pii": 500,
+        "no_pii": 500
+      },
+      "dry_run_only": false,
+      "headline_eligible": false,
+      "ledger_id": "TEST-PII-004",
+      "local_only": true,
+      "metrics": [
+        "paired_FP_reduction",
+        "recall_delta"
+      ],
+      "name": "PII-CHECKSUM-ABLATION",
+      "objectives": [
+        "Objective 4"
+      ],
+      "path": "Research/data/suites/frozen/pii_checksum_ablation.jsonl",
+      "research_questions": [
+        "RQ8"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "authored_checksum_pairs": 1000
+      },
+      "source_ledger_ids": [
+        "DATA-PII-004"
+      ],
+      "suite_sha256": "57fadcf20558a393c98f032ba2bf8004565e72de5f157fceb703fc288eccdf43",
+      "target_n": 1000
+    },
+    {
+      "actual_n": 500,
+      "class_counts": {
+        "0": 376,
+        "1": 124
+      },
+      "dry_run_only": false,
+      "headline_eligible": true,
+      "ledger_id": "TEST-EFF-001",
+      "local_only": true,
+      "metrics": [
+        "verdict_flip_rate",
+        "score_variance",
+        "exact_agreement"
+      ],
+      "name": "DETERMINISM-SUBSET",
+      "objectives": [
+        "Objective 3"
+      ],
+      "path": "Research/data/suites/frozen/determinism_subset.jsonl",
+      "research_questions": [
+        "RQ4"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "deepset_prompt_injections": 103,
+        "gretel_synthetic_multilingual_llm_prompts": 4,
+        "jackhhao_jailbreak_classification": 147,
+        "lmsys_toxic_chat": 246
+      },
+      "source_ledger_ids": [
+        "DATA-HNEG-001",
+        "DATA-INJ-001",
+        "DATA-INJ-002",
+        "DATA-INJ-003"
+      ],
+      "suite_sha256": "47b35ac525a530b2e4c26474f64c4305aaaf358182cfdfe28074207db249be8c",
+      "target_n": 500
+    },
+    {
+      "actual_n": 100,
+      "class_counts": {
+        "0": 40,
+        "1": 40,
+        "contains_pii": 15,
+        "no_pii": 5
+      },
+      "dry_run_only": false,
+      "headline_eligible": false,
+      "justification": "Cross-objective method pilot. These rows validate capture, pairing and failure handling and are excluded from headline estimates.",
+      "ledger_id": "TEST-PILOT-001",
+      "local_only": true,
+      "metrics": [
+        "schema_validity",
+        "failure_rate",
+        "end_to_end_completion"
+      ],
+      "name": "PILOT-100",
+      "objectives": [
+        "Objective 1",
+        "Objective 2",
+        "Objective 3",
+        "Objective 4"
+      ],
+      "path": "Research/data/suites/frozen/pilot_100.jsonl",
+      "research_questions": [
+        "RQ1",
+        "RQ2",
+        "RQ5",
+        "RQ7",
+        "RQ8",
+        "RQ9"
+      ],
+      "selection_seed": 20260716,
+      "source_counts": {
+        "ai4privacy_pii_masking_200k": 3,
+        "allenai_wildjailbreak": 3,
+        "authored_benign_long": 2,
+        "authored_high_entropy": 2,
+        "authored_latency_scaling": 10,
+        "authored_malformed_unicode": 2,
+        "authored_meta_injection": 10,
+        "authored_pii_hard_negative": 5,
+        "authored_structural_dos": 2,
+        "authored_token_flood": 2,
+        "deepset_prompt_injections": 10,
+        "gretel_pii_masking_en_v1": 7,
+        "gretel_synthetic_multilingual_llm_prompts": 10,
+        "hackaprompt_dataset": 8,
+        "jackhhao_jailbreak_classification": 10,
+        "lmsys_toxic_chat": 9,
+        "presidio_research": 5
+      },
+      "source_ledger_ids": [
+        "DATA-DOS-001",
+        "DATA-DOS-002",
+        "DATA-HNEG-001",
+        "DATA-INJ-001",
+        "DATA-INJ-002",
+        "DATA-INJ-003",
+        "DATA-INJ-004",
+        "DATA-LAT-001",
+        "DATA-PII-001",
+        "DATA-PII-002",
+        "DATA-PII-004",
+        "TEST-INJ-005"
+      ],
+      "suite_sha256": "102fec7914175bdfe771b0d0d4fe47b9da6627cd6385e9290a31521418afa04b",
+      "target_n": 100
+    }
+  ]
+}

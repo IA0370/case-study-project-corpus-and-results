@@ -1,0 +1,6 @@
+Suite,Deterministic proxy,LaaJ lg3,Judge tokens spent
+STRUCTURAL-DOS,"200/200 blocked, p50 12 ms, p95 38 ms",0/200 detected,241825
+TOKEN-FLOOD,125/200 blocked,1/200 detected,932750
+HIGH-ENTROPY-BLOB,"200/200 blocked, p50 18 ms",15/200 detected,568339
+MALFORMED-UNICODE,200/200 blocked,0/200 detected,265104
+BENIGN-LONG-DOCUMENTS control,0/200 blocked,0/200 blocked,-

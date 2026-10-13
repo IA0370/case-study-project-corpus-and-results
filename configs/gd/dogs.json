@@ -1,0 +1,141 @@
+{
+  "_comment": "Proxy policy profiles — one file, one 'dog' per policy. Each profile is a named personality backed by a ScanConfig preset + field overrides. The agent_id is the dog's name so the WebApp can track which policy scanned each event. Load with: python run_eval.py --gd-config <dog>  (e.g. --gd-config malinois)",
+
+  "malinois": {
+    "label": "Malinois",
+    "personality": "High-drive, bites on everything. Maximum detection, accepts false positives. Red-team / honeypot posture.",
+    "agent_id": "dog-malinois",
+    "preset": "strict",
+    "overrides": {
+      "risk_threshold": 0.25,
+      "min_suspicious_tokens": 1,
+      "base64_require_decode": false,
+      "heuristic_diminishing": false,
+      "tool_rag_checks": true,
+      "fabricated_role_checks": true,
+      "token_break_checks": true,
+      "propagation_checks": true,
+      "report_typographic_homoglyphs": true,
+      "risk_weight_code_injection": 0.7,
+      "risk_weight_semantic_gradient": 0.5,
+      "risk_weight_tool_rag": 0.6
+    }
+  },
+
+  "german_shepherd": {
+    "label": "German Shepherd",
+    "personality": "Disciplined all-rounder. Strong protection across the whole boundary with balanced false positives. Default production guard.",
+    "agent_id": "dog-german-shepherd",
+    "preset": "balanced",
+    "overrides": {
+      "risk_threshold": 0.4,
+      "min_suspicious_tokens": 2,
+      "tool_rag_checks": true,
+      "fabricated_role_checks": true,
+      "risk_weight_code_injection": 0.6,
+      "risk_weight_egress": 0.55
+    }
+  },
+
+  "rottweiler": {
+    "label": "Rottweiler",
+    "personality": "Heavy, territorial. Prioritizes DoS/token-flood defense and code-injection over semantic nuance. Tight resource bounds.",
+    "agent_id": "dog-rottweiler",
+    "preset": "balanced",
+    "overrides": {
+      "risk_threshold": 0.45,
+      "max_text_length": 40000,
+      "max_estimated_tokens": 15000,
+      "max_control_char_ratio": 0.05,
+      "max_unbroken_token_length": 800,
+      "repetition_threshold": 0.85,
+      "risk_weight_floods": 0.5,
+      "risk_weight_code_injection": 0.8
+    }
+  },
+
+  "doberman": {
+    "label": "Doberman",
+    "personality": "Fast and precise. Drops the heaviest detectors (semantic intent, delimiter post-passes) for minimum latency. Surgical jailbreak + extraction.",
+    "agent_id": "dog-doberman",
+    "preset": "balanced",
+    "overrides": {
+      "risk_threshold": 0.5,
+      "min_suspicious_tokens": 3,
+      "semantic_intent": false,
+      "delimiter_abuse": false,
+      "delimiter_postpass": false,
+      "context_anomaly": false,
+      "emoji_dominance": false,
+      "risk_weight_extraction": 0.0
+    }
+  },
+
+  "labrador": {
+    "label": "Labrador",
+    "personality": "Friendly, tolerant. Minimizes false positives for customer-facing chat. Blocks only the most confident detections.",
+    "agent_id": "dog-labrador",
+    "preset": "high_fidelity",
+    "overrides": {
+      "risk_threshold": 0.65,
+      "min_suspicious_tokens": 4,
+      "base64_require_decode": true,
+      "tool_rag_checks": false,
+      "fabricated_role_checks": false,
+      "token_break_checks": false,
+      "propagation_checks": false
+    }
+  },
+
+  "shepherd": {
+    "label": "Shepherd",
+    "personality": "Herd-aware. Watches the whole conversation across turns — escalation, trend, and halt on worsening. Multi-turn guardian.",
+    "agent_id": "dog-shepherd",
+    "preset": "balanced",
+    "overrides": {
+      "risk_threshold": 0.4,
+      "conversation_tracking": true,
+      "conversation_escalation": true,
+      "conversation_window_turns": 12,
+      "conversation_escalation_min_turns": 2,
+      "conversation_escalation_streak_turns": 2,
+      "conversation_elevated_risk_floor": 0.3,
+      "conversation_halt_on_worsening": true,
+      "conversation_trend_min_turns": 2,
+      "conversation_trend_min_streak": 2,
+      "propagation_checks": true,
+      "risk_weight_propagation": 0.55
+    }
+  },
+
+  "bloodhound": {
+    "label": "Bloodhound",
+    "personality": "Tracker. Maximizes semantic-intent recall for output-hijacking (phishing, promotion, denial, outage) via wide windows and low gaps.",
+    "agent_id": "dog-bloodhound",
+    "preset": "balanced",
+    "overrides": {
+      "risk_threshold": 0.35,
+      "semantic_intent": true,
+      "semantic_max_window_size": 20,
+      "semantic_max_gap": 10,
+      "semantic_min_sentence_length": 2,
+      "semantic_default_risk_contribution": 0.6,
+      "risk_weight_semantic_gradient": 0.6
+    }
+  },
+
+  "chihuahua": {
+    "label": "Chihuahua",
+    "personality": "Small, loud, zero tolerance. Alerts on anything suspicious at low thresholds. Watchdog for low-traffic high-value endpoints.",
+    "agent_id": "dog-chihuahua",
+    "preset": "strict",
+    "overrides": {
+      "risk_threshold": 0.2,
+      "min_suspicious_tokens": 1,
+      "heuristic_jailbreak_weight": 0.6,
+      "heuristic_imperative_weight": 0.2,
+      "alert_tier_critical_min": 0.6,
+      "alert_tier_high_max": 0.6
+    }
+  }
+}

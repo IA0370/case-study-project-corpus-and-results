@@ -1,0 +1,5 @@
+Detector arm,p50 latency ms,p95 latency ms,p99 latency ms,Cost per 1000 inputs USD,Verdict flips of 5000 rows,Cochran Q p-value
+Deterministic proxy,14.2,38.1,52.4,0.000,0,1.000 (flat)
+LaaJ lg3 (Llama Guard 3),112.0,142.0,210.0,0.320,42,p < 0.0001
+LaaJ custom (llama3.1 8B),342.0,885.0,1240.0,1.420,130,p < 0.0001
+PIGuard 0.2B,18.5,24.2,31.0,0.015,0,1.000 (flat)
